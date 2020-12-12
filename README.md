@@ -9,5 +9,5 @@ More details to come including tools and details about configuration.
 ### Acknowledgments
 
 - [Dortania](https://github.com/dortania) For the awesome OpenCore desktop guide.
-- [OpenCore project](https://github.com/OpenCorePkg) For the cleanest and most complete bootloader of all time.
+- [OpenCore project](https://github.com/acidanthera/OpenCorePkg) For the cleanest and most complete bootloader of all time.
 
