@@ -4,10 +4,10 @@ This repository contains a WIP configuration files for an OpenCore build with **
 
 So far so good using these configuration files for **Big Sur (11.0.1)**.
 
-More details to come...
+More details to come including tools and details about configuration.
 
 ### Acknowledgments
 
-- [Dortania](https://github.com/dortania) For the awesome OpenCore desktop guide
-- [OpenCore project](https://github.com/OpenCorePkg) For the cleanest and most complete bootloader
+- [Dortania](https://github.com/dortania) For the awesome OpenCore desktop guide.
+- [OpenCore project](https://github.com/OpenCorePkg) For the cleanest and most complete bootloader of all time.
 
