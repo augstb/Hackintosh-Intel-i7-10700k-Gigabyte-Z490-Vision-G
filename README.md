@@ -4,7 +4,9 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 
 So far so good using these configuration files for **Big Sur (11.2.1)**.
 
-Particularities of this configuration :
+![About this Mac](./Images/screenshot01.png)
+
+![Monitors](./Images/screenshot02.png) Particularities of this configuration :
 
 - I have a PCIe Wireless adapter AC 1300 (**Archer T6E**). If you don't need kext for it, just remove ```Airport*.kext``` kexts. Otherwise, if you came here because you have this adapter, just copy the kexts files, and integrate them in your config file. It is that simple.
 - I have an incompatible **NVIDIA GTX 1070** GPU so I disabled it to be sure there is no conflict whatsoever. To reset this, just remove ```SSDT-GPU-DISABLE.aml```.
