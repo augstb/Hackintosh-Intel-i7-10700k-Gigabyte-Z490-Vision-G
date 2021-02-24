@@ -4,6 +4,11 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 
 So far so good using these configuration files for **Big Sur (11.2.1)**.
 
+Particularities of this configuration :
+
+- I have a Wifi card (... ref to be added ...) so if you don't, just remove ```Airport*.kext``` kexts.
+- I have an incompatible GTX 1070 GPU so I disabled it to be sure there is no conflict whatsoever. To reset this, just remove ```SSDT-GPU-DISABLE.aml```.
+
 More details to come including tools and details about configuration.
 
 ### Acknowledgments
