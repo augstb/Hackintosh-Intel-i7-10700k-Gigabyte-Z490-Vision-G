@@ -252,7 +252,7 @@
 				<key>framebuffer-con1-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con1-flags</key>
-				<data>xwMAAA==</data>
+				<data>zwMAAA==</data>
 				<key>framebuffer-con1-index</key>
 				<data>AwAAAA==</data>
 				<key>framebuffer-con1-pipe</key>
@@ -268,7 +268,7 @@
 				<key>framebuffer-con2-type</key>
 				<data>AAQAAA==</data>
 				<key>framebuffer-con2-flags</key>
-				<data>xwMAAA==</data>
+				<data>zwMAAA==</data>
 				<key>framebuffer-con2-pipe</key>
 				<data>CgAAAA==</data>
 				<key>framebuffer-con0-busid</key>
@@ -276,7 +276,7 @@
 				<key>framebuffer-con0-enable</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-flags</key>
-				<data>xwMAAA==</data>
+				<data>zwMAAA==</data>
 				<key>framebuffer-con0-index</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-pipe</key>
