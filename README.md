@@ -19,23 +19,58 @@ Particularities of this configuration :
 - **dGPU:** *Nvidia GTX 1070* (Incompatible since macOS 10.14, thanks to Apple)
 - **PCIe Wireless adapter:** *TP-LINK AC1300* (Archer T6E)
 - **Bluetooth 4.0 USB dongle:** *Asus USB-BT400*
+- **CPU Cooler:** *Corsair iCue H100i RGB PRO XT*
+- **Mixing table / External sound card:** *Zoom Livetrack L-12*
 
 ## Working
 
-- **Audio:**
-- **USB:**
-- **Ethernet:**
-- **iGPU:** DP and HDMI are working fine after patching the Framebuffer.
-- **Wifi:**
-- **Bluetooth:** Out of the box
-- **Handoff/iMessages/Apple services:**
-- **Native NVRAM:**
+- **Audio *(Realtek ALC1220-VB)***
+
+- **USB**
+
+- **Ethernet *(Intel I225-V 2.5GbE LAN)***
+
+- **iGPU *(Intel UHD Graphics 630)***
+
+  DP and HDMI are working fine after patching the Framebuffer.
+
+- **Wifi *(TP-LINK AC1300 - Archer T6E)***
+
+- **Bluetooth *(Asus USB-BT400)***
+  Out of the box
+
+- **Handoff/iMessages/Apple services**
+
+- **NVRAM**
+
+  Working natively out of the box. Change default startup disk from the macOS settings.
+  ![Startup disk](./Images/startup_disk.png | width=50)
+
 - **Reboot/Shutdown**
+
+- **Sleep Mode**
+
+  Note that you need to unplug the USB cable of *Corsair iCue H100i RGB PRO XT* CPU Cooler otherwise you'll get instant wake after sleep with the following error:
+
+  ```shell
+  Wake from Normal Sleep [CDNVA] : due to XDCI CNVW PEG1 PEG2 RP04/UserActivity
+  ```
+
+  To get the log of Sleep/Wake events type this in a terminal:
+
+  ```shell
+  pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
+  ```
+
+  The USB cable of the CPU Cooler is only needed if you want to tune the fan speed and the colors with the software iCue. So this is not so much of a deal. I didn't found any hacks to get this working with the USB link.
+
+- **External sound card *(Zoom Livetrack L-12)***
+  Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
+  ![Livetrack L-12](./Images/livetrack.png)
 
 ## Partially Working
 
-- **Sleep/Wake:** Investigating...
-- **DRM:** Can't play DRM content on Safari
+- **DRM:** Can't play DRM content on Safari, but who cares?
 
 More details to come including tools and details about configuration.
 
