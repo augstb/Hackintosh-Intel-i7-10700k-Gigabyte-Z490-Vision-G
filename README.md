@@ -4,7 +4,7 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 
 So far so good using these configuration files for **Big Sur (11.2.1)**.
 
-![About this Mac](./Images/about_thismac.png)
+<img src="./Images/about_thismac.png" alt="about_this_mac" style="zoom:50%;" />
 
 Particularities of this configuration :
 
@@ -44,7 +44,7 @@ Particularities of this configuration :
 - **NVRAM**
 
   Working natively out of the box. Change default startup disk from the macOS settings.
-  ![Startup disk](./Images/startup_disk.png | width=50)
+  <img src="./Images/startup_disk.png" alt="Startup disk" style="zoom:50%;" />
 
 - **Reboot/Shutdown**
 
@@ -66,7 +66,7 @@ Particularities of this configuration :
 
 - **External sound card *(Zoom Livetrack L-12)***
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
-  ![Livetrack L-12](./Images/livetrack.png)
+  <img src="./Images/livetrack.png" alt="Livetrack" style="zoom:50%;" /> 
 
 ## Partially Working
 
