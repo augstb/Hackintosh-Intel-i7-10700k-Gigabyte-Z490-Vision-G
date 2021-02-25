@@ -32,7 +32,8 @@ Particularities of this configuration :
 
 - **iGPU *(Intel UHD Graphics 630)***
 
-  DP and HDMI are working fine after patching the Framebuffer.
+  DP and HDMI are working fine after patching the Framebuffer. Keep in mind that this framebuffer is tested only with this Motherboard and i7-10700k Comet Lake-S Desktop processor. You'll have to change some values if you don't have exactly the same hardware. To do so I recommend you to follow the [dortania guide](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/Intel-patching/), which is surely a reference treating with Open Core bootloader.
+   
 
 - **Wifi *(TP-LINK AC1300 - Archer T6E)***
 
@@ -68,11 +69,25 @@ Particularities of this configuration :
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
   <img src="./Images/livetrack.png" alt="Livetrack" style="zoom:50%;" /> 
 
-## Partially Working
+## Not Working
 
 - **DRM:** Can't play DRM content on Safari, but who cares?
 
-More details to come including tools and details about configuration.
+## BIOS Settings
+
+- **Disable**
+  - Fast Boot
+  - CSM Support
+  - Secure Boot
+  - Intel SGX
+  - CFG Lock
+- **Enable**
+  - VT-x
+  - VT-d
+  - Above 4G Decoding
+  - Hyper-Threading
+  - DVMT Pre-Allocated: 64M
+  - DVMT Total Gfx Mem: MAX
 
 ## Acknowledgments
 
