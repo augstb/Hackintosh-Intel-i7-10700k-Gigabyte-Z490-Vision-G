@@ -4,7 +4,8 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 
 So far so good using these configuration files for **Big Sur (11.2.1)**.
 
-<img src="./Images/about_thismac.png" alt="about_this_mac" style="zoom:50%;" />
+<center><img src="./Images/about.png" alt="about_this_mac" style="zoom:50%;" />
+  <img src="./Images/dock.png" alt="about_this_mac" style="zoom:50%; border-bottom: 5px solid #cccccc" /></center>
 
 Particularities of this configuration :
 
@@ -117,8 +118,9 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
 
 - **NVRAM**
 Working natively. Change default startup disk from the macOS settings.
-  <img src="./Images/startup_disk.png" alt="Startup disk" style="zoom:50%;" />
   
+  <center><img src="./Images/startup_disk.png" alt="Startup disk" style="zoom:50%;" /></center>
+
 - **Reboot/Shutdown**
 
 - **Sleep Mode**
@@ -139,7 +141,8 @@ Working natively. Change default startup disk from the macOS settings.
 
 - **External sound card *(Zoom Livetrack L-12)***
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
-  <img src="./Images/livetrack.png" alt="Livetrack" style="zoom:50%;" />
+  
+  <center><img src="./Images/livetrack.png" alt="Livetrack" style="zoom:50%;" /></center>
 
 ## Not Working
 
