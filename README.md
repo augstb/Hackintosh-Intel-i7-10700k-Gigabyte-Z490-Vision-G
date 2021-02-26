@@ -165,7 +165,7 @@ Working natively. Change default startup disk from the macOS settings.
   - DVMT Pre-Allocated: 64M
   - DVMT Total Gfx Mem: MAX
 
-<p align="center"><img src="./Images/dock.png" alt="Dock" width="729" /></p>
+<p align="center"><img src="./Images/dock.png" alt="Dock" width="710" /></p>
 
 ## Acknowledgments
 
