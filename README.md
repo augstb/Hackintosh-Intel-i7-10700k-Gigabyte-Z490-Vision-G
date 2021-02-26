@@ -6,8 +6,6 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
 
 <center><img src="./Images/about.png" alt="about_this_mac" width="698" /></center>
 
-<center><img src="./Images/dock.png" alt="about_this_mac" style="zoom:50%; border-bottom: 5px solid #cccccc" /></center>
-
 Particularities of this configuration :
 
 - I have a PCIe Wireless adapter AC1300 (**Archer T6E**). If you don't need kext for it, just remove ```Airport*.kext``` kexts. Otherwise, if you came here because you have this adapter, just copy the kexts files, and integrate them in your config file. It is that simple.
@@ -164,6 +162,8 @@ Working natively. Change default startup disk from the macOS settings.
   - Hyper-Threading
   - DVMT Pre-Allocated: 64M
   - DVMT Total Gfx Mem: MAX
+
+<center><img src="./Images/dock.png" alt="about_this_mac" style="border-bottom: 5px solid #cccccc" /></center>
 
 ## Acknowledgments
 
