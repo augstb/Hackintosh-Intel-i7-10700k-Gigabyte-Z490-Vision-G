@@ -120,7 +120,7 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
 - **NVRAM**
 Working natively. Change default startup disk from the macOS settings.
 
-  <p align="center"><img src="./Images/startup_disk.png" alt="Startup disk" width="670" /></p>
+<p align="center"><img src="./Images/startup_disk.png" alt="Startup disk" width="838" /></p>
 
 - **Reboot/Shutdown**
 
