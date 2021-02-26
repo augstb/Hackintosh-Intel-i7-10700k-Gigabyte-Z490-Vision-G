@@ -104,8 +104,8 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
   	<key>model</key>
   	<string>Intel UHD Graphics 630</string>
   </dict>
-  ```
-  
+```
+
   <p align="center"><img src="./Images/displays.png" alt="Startup disk" width="698" /></p>
 
 - **Wifi *(TP-LINK AC1300 - Archer T6E)***
@@ -120,7 +120,7 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
 - **NVRAM**
 Working natively. Change default startup disk from the macOS settings.
   
-  <p align="center"><img src="./Images/startup_disk.png" alt="Startup disk" width="893" /></p>
+  <p align="center"><img src="./Images/startup_disk.png" alt="Startup disk" width="783" /></p>
 
 - **Reboot/Shutdown**
 
@@ -143,7 +143,7 @@ Working natively. Change default startup disk from the macOS settings.
 - **External sound card *(Zoom Livetrack L-12)***
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
   
-  <p align="center"><img src="./Images/livetrack.png" alt="Livetrack" width="893" /></p>
+  <p align="center"><img src="./Images/livetrack.png" alt="Livetrack" width="783" /></p>
 
 ## Not Working
 
