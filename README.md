@@ -4,7 +4,7 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 
 So far so good using these configuration files for **Big Sur (11.2.1)**.
 
-<center><img src="./Images/about.png" alt="about_this_mac" style="max-width:348px;" /></center>
+<center><img src="./Images/about.png" alt="about_this_mac" width="348" /></center>
 
 <center><img src="./Images/dock.png" alt="about_this_mac" style="zoom:50%; border-bottom: 5px solid #cccccc" /></center>
 
