@@ -151,21 +151,27 @@ Working natively. Change default startup disk from the macOS settings.
 
 ## BIOS Settings
 
+**BIOS version: *F20b***
+
 - **Disable**
   - Fast Boot
-  - CSM Support
-  - Secure Boot
   - Intel SGX
   - CFG Lock
 - **Enable**
-  - VT-x
-  - VT-d
-  - Above 4G Decoding
   - Hyper-Threading
-  - DVMT Pre-Allocated: 64M
+  - VT-d
+  - CSM Support
+  - Above 4G Decoding
+  - DVMT Pre-Allocated: 64M *(Default)*
   - DVMT Total Gfx Mem: MAX
 
-<p align="center"><img src="./Images/dock.png" alt="Dock" width="710" /></p>
+After loading optimized default settings, you'll just need to change the following settings:
+
+<p align="center"><img src="./Images/bios.png" alt="Bios" width="527" /></p>
+
+Don't forget to set up your XMP profile correctly in *Tweaker* if you have high frequency memory like mine (3600 MHz).
+
+Since **Gigabyte F20b BIOS Update**, you need to enable ```CSM Support``` in order to set ```Initial Display Output``` to ```IGFX```.
 
 ## Acknowledgments
 
@@ -173,3 +179,5 @@ Working natively. Change default startup disk from the macOS settings.
 - [OpenCore project](https://github.com/acidanthera/OpenCorePkg) For the cleanest and most complete bootloader of all time.
 - [georgetree](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g) For his work on the Z490 Vision-G framebuffer (fixing the HDMI port)
 - [samuel21119](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh) For his work on the USB mapping on the Vision G and on the LAN adapter
+
+<p align="center"><img src="./Images/dock.png" alt="Dock" width="710" /></p>
