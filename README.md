@@ -106,7 +106,7 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
   </dict>
 ```
 
-  <p align="center"><img src="./Images/displays.png" alt="Startup disk" width="524" /></p>
+  <p align="center"><img src="./Images/displays.png" alt="Startup disk" width="698" /></p>
 
 - **Wifi *(TP-LINK AC1300 - Archer T6E)***
   Using kexts ```Airport*.kext```.
