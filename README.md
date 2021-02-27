@@ -42,7 +42,7 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
 - **USB**
   All ports working, thanks to @samuel21119 that worked on the [USB map of the Z490 Vision G](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/blob/master/USB-Port-Configuration.md). I redid the USBMap with [corpnewt/USBMap](https://github.com/corpnewt/USBMap) tool, using my *iMac20,1* SMBIOS and did not set *HS02* to internal port as it is connected on the front pannel in my case. I disabled *HS03*, *SS03*, *HS01* and *HS12* as Samuel did. Pay attention that F_USB1 and F_USB2 is a hub mapped to *HS02* unlike Samuel shows. See @OMandaloriano [issue](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/issues/11) for more details and updated Map.
 *TLDR:* Use ```USBMap.kext``` and disable ```USBInjectAll.kext``` (Compiled it for *iMac20,1* SMBIOS).
-  
+
 - **Ethernet *(Intel I225-V 2.5GbE LAN)***
   Using @samuel21119 custom kext ```FakePCIID_Intel_I225-V.kext```, and Device property:
 
@@ -127,19 +127,21 @@ Working natively. Change default startup disk from the macOS settings.
 
 - **Sleep Mode**
 
-  Note that you need to unplug the USB cable of *Corsair iCue H100i RGB PRO XT* CPU Cooler otherwise you'll get instant wake after sleep with the following error:
+  - Note that you need to unplug the USB cable of *Corsair iCue H100i RGB PRO XT* CPU Cooler otherwise you'll get instant wake after sleep with the following error:
 
   ```shell
   Wake from Normal Sleep [CDNVA] : due to XDCI CNVW PEG1 PEG2 RP04/UserActivity
   ```
-
   To get the log of Sleep/Wake events type this in a terminal:
-
   ```shell
   pmset -g log | grep -e "Sleep.*due to" -e "Wake.*due to"
   ```
 
   The USB cable of the CPU Cooler is only needed if you want to tune the fan speed and the colors with the software iCue. So this is not so much of a deal. I didn't found any hacks to get this working with the USB link.
+
+  - Had also an instant wake after doing the USBMap. Adding ```SSDT-GPRW.aml``` and associated patch documented in @dortania [Post-Instal Guide](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) fixed the problem.
+
+  - Since *F20b* BIOS version, sleep was broken (green screen after wake), but adding ```-wegnoegpu``` to boot arguments did the trick. It might not be necessary if you have a dGPU.
 
 - **External sound card *(Zoom Livetrack L-12)***
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
@@ -166,11 +168,11 @@ Working natively. Change default startup disk from the macOS settings.
   - DVMT Pre-Allocated: 64M *(Default)*
   - DVMT Total Gfx Mem: MAX
 
-After loading optimized default settings, you'll just need to change the following settings:
+After loading optimized default settings for BIOS version >= F20, you'll just need to change the following settings:
 
 <p align="center"><img src="./Images/bios.png" alt="Bios" width="527" /></p>
 
-Don't forget to set up your XMP profile correctly in *Tweaker* if you have high frequency memory like mine (3600 MHz).
+Before F20, ```CFG Lock``` was enable by default. Don't forget to set up your XMP profile correctly in *Tweaker* if you have high frequency memory like mine (3600 MHz).
 
 Since **Gigabyte F20b BIOS Update**, you need to enable ```CSM Support``` in order to set ```Initial Display Output``` to ```IGFX```.
 
