@@ -144,7 +144,7 @@ Working natively. Change default startup disk from the macOS settings.
   - Since *F20b* BIOS version, sleep was broken (green screen after wake), but adding ```-wegnoegpu``` to boot arguments did the trick. It might not be necessary if you have a dGPU.
 
 - **External sound card *(Zoom Livetrack L-12)***
-  Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device.
+  Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device. Don't forget to set the switch to *Class Compilant mode* at the back of the device.
 
 <p align="center"><img src="./Images/livetrack.png" alt="Livetrack" width="838" /></p>
 
