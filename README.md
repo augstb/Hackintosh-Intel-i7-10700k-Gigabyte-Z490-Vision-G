@@ -40,11 +40,11 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
   Fixing HDMI audio with kext ```FakePCIID_Intel_HDMI_Audio.kext```.
 
 - **USB**
-  All ports working, thanks to @samuel21119 that worked on the [USB map of the Z490 Vision G](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/blob/master/USB-Port-Configuration.md). I redid the USBMap with [corpnewt/USBMap](https://github.com/corpnewt/USBMap) tool, using my *iMac20,1* SMBIOS and did not set *HS02* to internal port as it is connected on the front pannel in my case. I disabled *HS03*, *SS03*, *HS01* and *HS12* as Samuel did. Pay attention that F_USB1 and F_USB2 is a hub mapped to *HS02* unlike Samuel shows. See @OMandaloriano [issue](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/issues/11) for more details and updated Map.
+  All ports working, thanks to **[samuel21119](https://github.com/samuel21119)** that worked on the [USB map of the Z490 Vision G](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/blob/master/USB-Port-Configuration.md). I redid the USBMap with [corpnewt/USBMap](https://github.com/corpnewt/USBMap) tool, using my *iMac20,1* SMBIOS and did not set *HS02* to internal port as it is connected on the front pannel in my case. I disabled *HS03*, *SS03*, *HS01* and *HS12* as Samuel did. Pay attention that F_USB1 and F_USB2 is a hub mapped to *HS02* unlike Samuel shows. See **[OMandaloriano](https://github.com/OMandaloriano)** [issue](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/issues/11) for more details and updated Map.
 *TLDR:* Use ```USBMap.kext``` and disable ```USBInjectAll.kext``` (Compiled it for *iMac20,1* SMBIOS).
 
 - **Ethernet *(Intel I225-V 2.5GbE LAN)***
-  Using @samuel21119 custom kext ```FakePCIID_Intel_I225-V.kext```, and Device property:
+  Using **[samuel21119](https://github.com/samuel21119)** custom kext ```FakePCIID_Intel_I225-V.kext```, and Device property:
 
   ```xml
   <key>PciRoot(0x0)/Pci(0x1C,0x1)/Pci(0x0, 0x0)</key>
@@ -55,57 +55,57 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
   ```
 
 - **iGPU *(Intel UHD Graphics 630)***
-DP and HDMI are working fine after patching the Framebuffer. Keep in mind that this framebuffer is tested only with this Motherboard and i7-10700k Comet Lake-S Desktop processor. You'll have to change some values if you don't have exactly the same hardware. To do so I recommend you to follow the [dortania guide](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/), which is surely a reference treating with Open Core bootloader. Credits to @georgetree for [his work on the framebuffer](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g).
+DP and HDMI are working fine after patching the Framebuffer. Keep in mind that this framebuffer is tested only with this Motherboard and i7-10700k Comet Lake-S Desktop processor. You'll have to change some values if you don't have exactly the same hardware. To do so I recommend you to follow the [dortania guide](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/), which is surely a reference treating with Open Core bootloader. Credits to **[georgetree](https://github.com/georgetree)** for [his work on the framebuffer](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g) as well as **[azhinu](https://github.com/azhinu)** that proposed [this version](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g/issues/3) of the framebuffer patch which should allow the use of two 4k displays and wroking DRM. In my case, DRM are not working with that patch but you can give it a try, who knows.
 
-```xml
+  ```xml
   <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
   <dict>
-  	<key>AAPL,ig-platform-id</key>
-  	<data>BwCbPg==</data>
-  	<key>device-id</key>
-  	<data>xZsAAA==</data>
-  	<key>framebuffer-con1-busid</key>
-  	<data>BAAAAA==</data>
-  	<key>framebuffer-con1-enable</key>
-  	<data>AQAAAA==</data>
-  	<key>framebuffer-con1-flags</key>
-  	<data>zwMAAA==</data>
-  	<key>framebuffer-con1-index</key>
-  	<data>AwAAAA==</data>
-  	<key>framebuffer-con1-pipe</key>
-  	<data>CAAAAA==</data>
-  	<key>framebuffer-con1-type</key>
-  	<data>AAgAAA==</data>
-  	<key>framebuffer-con2-busid</key>
-  	<data>AQAAAA==</data>
-  	<key>framebuffer-con2-enable</key>
-  	<data>AQAAAA==</data>
-  	<key>framebuffer-con2-index</key>
-  	<data>AgAAAA==</data>
-  	<key>framebuffer-con2-type</key>
-  	<data>AAQAAA==</data>
-  	<key>framebuffer-con2-flags</key>
-  	<data>zwMAAA==</data>
-  	<key>framebuffer-con2-pipe</key>
-  	<data>CgAAAA==</data>
-  	<key>framebuffer-con0-busid</key>
-  	<data>BQAAAA==</data>
-  	<key>framebuffer-con0-enable</key>
-  	<data>AQAAAA==</data>
-  	<key>framebuffer-con0-flags</key>
-  	<data>zwMAAA==</data>
-  	<key>framebuffer-con0-index</key>
-  	<data>AQAAAA==</data>
-  	<key>framebuffer-con0-pipe</key>
-  	<data>CQAAAA==</data>
-  	<key>framebuffer-con0-type</key>
-  	<data>AAQAAA==</data>
-  	<key>framebuffer-patch-enable</key>
-  	<data>AQAAAA==</data>
-  	<key>model</key>
-  	<string>Intel UHD Graphics 630</string>
+    <key>AAPL,ig-platform-id</key>
+    <data>BwCbPg==</data>
+    <key>device-id</key>
+    <data>mz4AAA==</data>
+    <key>framebuffer-con1-busid</key>
+    <data>BAAAAA==</data>
+    <key>framebuffer-con1-enable</key>
+    <data>AQAAAA==</data>
+    <key>framebuffer-con1-flags</key>
+    <data>zwMAAA==</data>
+    <key>framebuffer-con1-index</key>
+    <data>AwAAAA==</data>
+    <key>framebuffer-con1-pipe</key>
+    <data>CAAAAA==</data>
+    <key>framebuffer-con1-type</key>
+    <data>AAgAAA==</data>
+    <key>framebuffer-con2-busid</key>
+    <data>AQAAAA==</data>
+    <key>framebuffer-con2-enable</key>
+    <data>AQAAAA==</data>
+    <key>framebuffer-con2-index</key>
+    <data>AgAAAA==</data>
+    <key>framebuffer-con2-type</key>
+    <data>AAQAAA==</data>
+    <key>framebuffer-con2-flags</key>
+    <data>zwMAAA==</data>
+    <key>framebuffer-con2-pipe</key>
+    <data>CgAAAA==</data>
+    <key>framebuffer-con0-busid</key>
+    <data>BQAAAA==</data>
+    <key>framebuffer-con0-enable</key>
+    <data>AQAAAA==</data>
+    <key>framebuffer-con0-flags</key>
+    <data>zwMAAA==</data>
+    <key>framebuffer-con0-index</key>
+    <data>AQAAAA==</data>
+    <key>framebuffer-con0-pipe</key>
+    <data>CQAAAA==</data>
+    <key>framebuffer-con0-type</key>
+    <data>AAQAAA==</data>
+    <key>framebuffer-patch-enable</key>
+    <data>AQAAAA==</data>
+    <key>model</key>
+    <string>Intel UHD Graphics 630</string>
   </dict>
-```
+  ```
 
   <p align="center"><img src="./Images/displays.png" alt="Startup disk" width="698" /></p>
 
@@ -139,7 +139,7 @@ Working natively. Change default startup disk from the macOS settings.
 
   The USB cable of the CPU Cooler is only needed if you want to tune the fan speed and the colors with the software iCue. So this is not so much of a deal. I didn't found any hacks to get this working with the USB link.
 
-  - Had also an instant wake after doing the USBMap. Adding ```SSDT-GPRW.aml``` and associated patch documented in @dortania [Post-Instal Guide](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) fixed the problem.
+  - Had also an instant wake after doing the USBMap. Adding ```SSDT-GPRW.aml``` and associated patch documented in **[dortania](https://github.com/dortania)** [Post-Instal Guide](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) fixed the problem.
 
   - Since *F20b* BIOS version, sleep was broken (green screen after wake), but adding ```-wegnoegpu``` to boot arguments did the trick. It might not be necessary if you have a dGPU.
 
