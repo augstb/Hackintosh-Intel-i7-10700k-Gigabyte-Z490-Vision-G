@@ -160,10 +160,10 @@ Working natively. Change default startup disk from the macOS settings.
   - Fast Boot
   - Intel SGX
   - CFG Lock
+  - CSM Support
 - **Enable**
   - Hyper-Threading
   - VT-d
-  - CSM Support
   - Above 4G Decoding
   - DVMT Pre-Allocated: 64M *(Default)*
   - DVMT Total Gfx Mem: MAX
@@ -176,7 +176,9 @@ And disable ```CFG Lock``` (I'll add update the screenshot soon). Don't forget t
 
 **I don't recommand F20b BIOS update because it breaks sleep mode and I also found it slower than F8 at startup. I am not sure why, so unless you have a 11th gen Intel processor, you can just stay at F8c (at least before Gigabyte make another update after F20b). F8c enables Resizable Base-Adress (BAR) so you good to go with it at least.**
 
-*If you really need this BIOS update:* Since **Gigabyte F20b BIOS Update**, you need to enable ```CSM Support``` in order to set ```Initial Display Output``` to ```IGFX```. In order to fix sleep mode showing green screen at wake, I found that adding ```-wegnoegpu``` to boot arguments did the trick, but I'm not 100% sure about it so I'll appreciate feedback. It might not be necessary if you have a dGPU.
+Since **Gigabyte F20b BIOS Update**, in order to set ```Initial Display Output``` to ```IGFX``` you need to enable ```CSM Support```. Just enable ```CSM Support```, set ```Initial Display Output``` to ```IGFX```, then disable ```CSM Support``` (thanks [azhinu](https://github.com/azhinu) for the little trick).
+
+In order to fix sleep mode showing green screen at wake, I found that adding ```-wegnoegpu``` to boot arguments did the trick, but I'm not 100% sure about it so I'll appreciate feedback. It might not be necessary if you have a dGPU.
 
 ## Acknowledgments
 
