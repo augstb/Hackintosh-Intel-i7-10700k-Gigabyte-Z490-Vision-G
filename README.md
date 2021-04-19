@@ -55,7 +55,7 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
   ```
 
 - **iGPU *(Intel UHD Graphics 630)***
-DP and HDMI are working fine after patching the Framebuffer. Keep in mind that this framebuffer is tested only with this Motherboard and i7-10700k Comet Lake-S Desktop processor. You'll have to change some values if you don't have exactly the same hardware. To do so I recommend you to follow the [dortania guide](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/), which is surely a reference treating with Open Core bootloader. Credits to **[georgetree](https://github.com/georgetree)** for [his work on the framebuffer](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g) as well as **[azhinu](https://github.com/azhinu)** who proposed [this version](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g/issues/3) of the framebuffer patch which should allows the use of two 4k displays and working DRM. In my case, DRM are not working with that patch but you can give it a try, who knows.
+DP and HDMI are working fine after patching the Framebuffer. Keep in mind that this framebuffer is tested only with this Motherboard and i7-10700k Comet Lake-S Desktop processor. You'll have to change some values if you don't have exactly the same hardware. To do so I recommend you to follow the [dortania guide](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/), which is surely a reference treating with Open Core bootloader. Credits to **[georgetree](https://github.com/georgetree)** for [his work on the framebuffer](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g).
 
   ```xml
   <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
@@ -63,7 +63,7 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
     <key>AAPL,ig-platform-id</key>
     <data>BwCbPg==</data>
     <key>device-id</key>
-    <data>mz4AAA==</data>
+    <data>xZsAAA==</data>
     <key>framebuffer-con1-busid</key>
     <data>BAAAAA==</data>
     <key>framebuffer-con1-enable</key>
