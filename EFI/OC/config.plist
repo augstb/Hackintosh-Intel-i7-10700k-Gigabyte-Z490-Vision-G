@@ -113,6 +113,10 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data></data>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -139,6 +143,10 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data></data>
+				<key>Base</key>
+				<string>\_SB.PCI0.LPCB.HPET</string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -152,6 +160,8 @@
 			<key>ResetHwSig</key>
 			<false/>
 			<key>ResetLogoStatus</key>
+			<false/>
+			<key>SyncTableIds</key>
 			<false/>
 		</dict>
 	</dict>
@@ -241,6 +251,8 @@
 			<false/>
 			<key>SyncRuntimePermissions</key>
 			<true/>
+			<key>ForceBooterSignature</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -464,6 +476,8 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
+				<key>Arch</key>
+				<string>Any</string>
 				<key>BundlePath</key>
 				<string>FakePCIID_Intel_HDMI_Audio.kext</string>
 				<key>Comment</key>
@@ -864,6 +878,8 @@
 			<false/>
 			<key>SetApfsTrimTimeout</key>
 			<integer>-1</integer>
+			<key>ProvideCurrentCpuInfo</key>
+			<false/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -873,6 +889,8 @@
 			<string>x86_64</string>
 			<key>KernelCache</key>
 			<string>Auto</string>
+			<key>CustomKernel</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>Misc</key>
@@ -959,6 +977,8 @@
 			<true/>
 			<key>SecureBootModel</key>
 			<string>Default</string>
+			<key>AllowToggleSip</key>
+			<false/>
 		</dict>
 		<key>Tools</key>
 		<array>
@@ -979,6 +999,8 @@
 				<false/>
 				<key>TextMode</key>
 				<false/>
+				<key>Flavour</key>
+				<string>OpenShell:UEFIShell:Shell</string>
 			</dict>
 		</array>
 	</dict>
@@ -1010,6 +1032,8 @@
 				<data></data>
 				<key>run-efi-updater</key>
 				<string>No</string>
+				<key>ForceDisplayRotationInEFI</key>
+				<integer>0</integer>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -1071,8 +1095,6 @@
 		<false/>
 		<key>Generic</key>
 		<dict>
-			<key>AdviseWindows</key>
-			<false/>
 			<key>MLB</key>
 			<string>C02045701GUPHCD1H</string>
 			<key>ProcessorType</key>
@@ -1090,6 +1112,8 @@
 			<key>SystemUUID</key>
 			<string>F13515B0-AF2C-4CB1-A2DF-C21F33E1F493</string>
 			<key>MaxBIOSVersion</key>
+			<false/>
+			<key>AdviseFeatures</key>
 			<false/>
 		</dict>
 		<key>UpdateDataHub</key>
@@ -1138,14 +1162,37 @@
 			<integer>0</integer>
 			<key>SetupDelay</key>
 			<integer>0</integer>
+			<key>ResetTrafficClass</key>
+			<false/>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HfsPlus.efi</string>
-			<string>OpenRuntime.efi</string>
-			<string>OpenCanopy.efi</string>
+			<dict>
+				<key>Path</key>
+				<string>HfsPlus.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>Path</key>
+				<string>OpenCanopy.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>Path</key>
+				<string>OpenRuntime.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+			</dict>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1153,8 +1200,6 @@
 			<false/>
 			<key>KeyForgetThreshold</key>
 			<integer>5</integer>
-			<key>KeyMergeThreshold</key>
-			<integer>2</integer>
 			<key>KeySupport</key>
 			<true/>
 			<key>KeySupportMode</key>
@@ -1168,33 +1213,6 @@
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>
-		<key>Output</key>
-		<dict>
-			<key>ClearScreenOnModeSwitch</key>
-			<false/>
-			<key>ConsoleMode</key>
-			<string></string>
-			<key>DirectGopRendering</key>
-			<false/>
-			<key>ForceResolution</key>
-			<false/>
-			<key>IgnoreTextInGraphics</key>
-			<false/>
-			<key>ProvideConsoleGop</key>
-			<true/>
-			<key>ReconnectOnResChange</key>
-			<false/>
-			<key>ReplaceTabWithSpace</key>
-			<false/>
-			<key>Resolution</key>
-			<string>Max</string>
-			<key>SanitiseClearScreen</key>
-			<false/>
-			<key>TextRenderer</key>
-			<string>BuiltinGraphics</string>
-			<key>UgaPassThrough</key>
-			<false/>
-		</dict>
 		<key>ProtocolOverrides</key>
 		<dict>
 			<key>AppleAudio</key>
@@ -1202,8 +1220,6 @@
 			<key>AppleBootPolicy</key>
 			<false/>
 			<key>AppleDebugLog</key>
-			<false/>
-			<key>AppleEvent</key>
 			<false/>
 			<key>AppleFramebufferInfo</key>
 			<false/>
@@ -1233,6 +1249,8 @@
 			<false/>
 			<key>UnicodeCollation</key>
 			<false/>
+			<key>AppleEg2Info</key>
+			<false/>
 		</dict>
 		<key>Quirks</key>
 		<dict>
@@ -1249,6 +1267,16 @@
 			<key>UnblockFsConnect</key>
 			<false/>
 			<key>DisableSecurityPolicy</key>
+			<false/>
+			<key>ActivateHpetSupport</key>
+			<false/>
+			<key>EnableVectorAcceleration</key>
+			<true/>
+			<key>ForgeUefiSupport</key>
+			<false/>
+			<key>ForceOcWriteFlash</key>
+			<false/>
+			<key>ReloadOptionRoms</key>
 			<false/>
 		</dict>
 		<key>ReservedMemory</key>
@@ -1278,6 +1306,52 @@
 				<string>RuntimeCode</string>
 			</dict>
 		</array>
+		<key>AppleInput</key>
+		<dict>
+			<key>AppleEvent</key>
+			<string>Builtin</string>
+			<key>CustomDelays</key>
+			<false/>
+			<key>KeyInitialDelay</key>
+			<integer>50</integer>
+			<key>KeySubsequentDelay</key>
+			<integer>5</integer>
+			<key>GraphicsInputMirroring</key>
+			<true/>
+			<key>PointerSpeedDiv</key>
+			<integer>1</integer>
+			<key>PointerSpeedMul</key>
+			<integer>1</integer>
+		</dict>
+		<key>Output</key>
+		<dict>
+			<key>ClearScreenOnModeSwitch</key>
+			<false/>
+			<key>ConsoleMode</key>
+			<string></string>
+			<key>DirectGopRendering</key>
+			<false/>
+			<key>ForceResolution</key>
+			<false/>
+			<key>GopPassThrough</key>
+			<string>Disabled</string>
+			<key>IgnoreTextInGraphics</key>
+			<false/>
+			<key>ProvideConsoleGop</key>
+			<true/>
+			<key>ReconnectOnResChange</key>
+			<false/>
+			<key>ReplaceTabWithSpace</key>
+			<false/>
+			<key>Resolution</key>
+			<string>Max</string>
+			<key>SanitiseClearScreen</key>
+			<false/>
+			<key>TextRenderer</key>
+			<string>BuiltinGraphics</string>
+			<key>UgaPassThrough</key>
+			<false/>
+		</dict>
 	</dict>
 </dict>
 </plist>
