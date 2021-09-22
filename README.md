@@ -1,6 +1,6 @@
 # Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G
 
-This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.6.6)**.
+This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.7.3)**.
 
 Particularities of this configuration :
 
@@ -41,7 +41,7 @@ So far so good using these configuration files for **Big Sur (11.2.1)**.
 
 - **USB**
   All ports working, thanks to **[samuel21119](https://github.com/samuel21119)** that worked on the [USB map of the Z490 Vision G](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/blob/master/USB-Port-Configuration.md). I redid the USBMap with [corpnewt/USBMap](https://github.com/corpnewt/USBMap) tool, using my *iMac20,1* SMBIOS and did not set *HS02* to internal port as it is connected on the front pannel in my case. I disabled *HS03*, *SS03*, *HS01* and *HS12* as Samuel did. Pay attention that F_USB1 and F_USB2 is a hub mapped to *HS02* unlike Samuel shows. See **[OMandaloriano](https://github.com/OMandaloriano)** [issue](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/issues/11) for more details and updated Map.
-*TLDR:* Use ```USBMap.kext``` and disable ```USBInjectAll.kext``` (Compiled it for *iMac20,1* SMBIOS).
+  *TLDR:* Use ```USBMap.kext``` and disable ```USBInjectAll.kext``` (Compiled it for *iMac20,1* SMBIOS).
 
 - **Ethernet *(Intel I225-V 2.5GbE LAN)***
   Using **[samuel21119](https://github.com/samuel21119)** custom kext ```FakePCIID_Intel_I225-V.kext```, and Device property:
