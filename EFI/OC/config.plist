@@ -261,11 +261,6 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x1C,0x1)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>device-id</key>
-				<data>8hUAAA==</data>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
@@ -318,12 +313,27 @@
 				<key>model</key>
 				<string>Intel UHD Graphics 630</string>
 			</dict>
+			<key>#PciRoot(0x0)/Pci(0x1C,0x1)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Built-in</string>
+				<key>Comment</key>
+				<string>Required tor macOS 10.15 up to 11.3 only</string>
+				<key>device-id</key>
+				<data>8hUAAA==</data>
+				<key>device_type</key>
+				<string>Ethernet-Controller</string>
+				<key>model</key>
+				<string>Intel I225-V</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
-				<key>device-id</key>
-				<data>cKEAAA==</data>
+				<key>device_type</key>
+				<string>Audio device</string>
 				<key>layout-id</key>
-				<data>BwAAAA==</data>
+				<integer>28</integer>
+				<key>model</key>
+				<string>Realtek ALC1220-VB</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -442,6 +452,24 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
+					<key>Arch</key>
+					<string>x86_64</string>
+					<key>BundlePath</key>
+					<string>BluetoolFixup.kext</string>
+					<key>Comment</key>
+					<string>BluetoolFixup from BrcmPatchRAM</string>
+					<key>Enabled</key>
+					<true/>
+					<key>ExecutablePath</key>
+					<string>Contents/MacOS/BluetoolFixup</string>
+					<key>MaxKernel</key>
+					<string></string>
+					<key>MinKernel</key>
+					<string>10.0.0</string>
+					<key>PlistPath</key>
+					<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
@@ -449,7 +477,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/FakePCIID</string>
 				<key>MaxKernel</key>
@@ -467,7 +495,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -485,7 +513,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -1044,7 +1072,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 alcid=1 nv_disable=1 swd_panic=1 -wegnoegpu</string>
+				<string>keepsyms=1 debug=0x100 alcid=1 nv_disable=1 dk.e1000=0 swd_panic=1 -wegnoegpu</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
