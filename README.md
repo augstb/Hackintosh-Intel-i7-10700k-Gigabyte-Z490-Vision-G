@@ -6,7 +6,7 @@ Particularities of this configuration :
 
 - I have a PCIe Wireless adapter AC1300 (**Archer T6E**). If you don't need kext for it, just remove ```Airport*.kext``` kexts. Otherwise, if you came here because you have this adapter, just copy the kexts files, and integrate them in your config file. It is that simple.
 - I have an incompatible **NVIDIA GTX 1070** GPU so I disabled it to be sure there is no conflict whatsoever. To reset this, just remove ```SSDT-GPU-DISABLE.aml```.
-- **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Use Big Sur if you do not have an alternative. 
+- **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Stay on macOS Big Sur if you do not have an alternative. 
 
 So far so good using these configuration files for **Monterey (12.1)**.
 
@@ -152,7 +152,7 @@ Working natively. Change default startup disk from the macOS settings.
 ## Not Working
 
 - **DRM:** Can't play DRM content on Safari, but who cares?
-- **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Use Big Sur if you do not have an alternative. 
+- **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Stay on macOS Big Sur if you do not have an alternative. 
 
 ## BIOS Settings
 
