@@ -44,7 +44,7 @@ So far so good using these configuration files for **Monterey (12.1)**.
   All ports working, thanks to **[samuel21119](https://github.com/samuel21119)** that worked on the [USB map of the Z490 Vision G](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/blob/master/USB-Port-Configuration.md). I redid the USBMap with [corpnewt/USBMap](https://github.com/corpnewt/USBMap) tool, using my *iMac20,1* SMBIOS and did not set *HS02* to internal port as it is connected on the front pannel in my case. I disabled *HS03*, *SS03*, *HS01* and *HS12* as Samuel did. Pay attention that F_USB1 and F_USB2 is a hub mapped to *HS02* unlike Samuel shows. See **[OMandaloriano](https://github.com/OMandaloriano)** [issue](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh/issues/11) for more details and updated Map.
   *TLDR:* Use ```USBMap.kext``` and disable ```USBInjectAll.kext``` (Compiled it for *iMac20,1* SMBIOS).
 
-- **Ethernet *(Intel I225-V 2.5GbE LAN)***
+- **Ethernet *(Intel I225-V 2.5GbE LAN)*** (Not compatible with macOS Monterey) 
   Using **[samuel21119](https://github.com/samuel21119)** custom kext ```FakePCIID_Intel_I225-V.kext```, and Device property:
 
   ```xml
