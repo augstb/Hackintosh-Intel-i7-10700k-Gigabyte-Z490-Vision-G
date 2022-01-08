@@ -1,6 +1,6 @@
 # Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G
 
-This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.7.3)**.
+This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.7.6)**.
 
 Particularities of this configuration :
 

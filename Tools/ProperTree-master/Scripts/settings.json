@@ -1,0 +1,11 @@
+{
+    "use_custom_font": false, 
+    "open_recent": [
+        "/Volumes/EFI/EFI/OC/config.plist", 
+        "/Users/augstb/git/Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G/Tools/OCConfigCompare-master/Sample.plist"
+    ], 
+    "font_size": 13, 
+    "comment_strip_prefix": "#", 
+    "use_custom_font_size": false, 
+    "drag_dead_zone": 20
+}
