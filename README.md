@@ -5,7 +5,7 @@ This repository contains WIP configuration files for an OpenCore build with **Gi
 Particularities of this configuration :
 
 - I have a PCIe Wireless adapter AC1300 (**Archer T6E**). If you don't need kext for it, just remove ```Airport*.kext``` kexts. Otherwise, if you came here because you have this adapter, just copy the kexts files, and integrate them in your config file. It is that simple.
-- I have an incompatible **NVIDIA GTX 1070** GPU so I disabled it to be sure there is no conflict whatsoever. To reset this, just remove ```SSDT-GPU-DISABLE.aml```.
+- I have an compatible **AMD Radeon RX 6800 XT** GPU.
 - **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Stay on macOS Big Sur if you do not have an alternative. 
 
 So far so good using these configuration files for **Monterey (12.1)**.
@@ -17,7 +17,7 @@ So far so good using these configuration files for **Monterey (12.1)**.
 - **Motherboard:** *Gigabyte Z490 Vision G*
 - **Processor:** *Intel i7-10700k*
 - **Memory:** *Corsair Vengeance LPX* (DDR4 - 3600 MHz)
-- **dGPU:** *Nvidia GTX 1070* (Incompatible since macOS 10.14, thanks to Apple)
+- **dGPU:** *AMD Radeon RX 6800 XT* (Compatible since macOS Big Sur)
 - **PCIe Wireless adapter:** *TP-LINK AC1300* (Archer T6E)
 - **Bluetooth 4.0 USB dongle:** *Asus USB-BT400*
 - **CPU Cooler:** *Corsair iCue H100i RGB PRO XT*
@@ -142,8 +142,6 @@ Working natively. Change default startup disk from the macOS settings.
 
   - Had also an instant wake after doing the USBMap. Adding ```SSDT-GPRW.aml``` and associated patch documented in **[dortania](https://github.com/dortania)** [Post-Instal Guide](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) fixed the problem.
 
-  - Since *F20b* BIOS version, sleep was broken (green screen after wake), but adding ```-wegnoegpu``` to boot arguments did the trick. It might not be necessary if you have a dGPU.
-
 - **External sound card *(Zoom Livetrack L-12)***
   Using [macOS driver](https://zoomcorp.com/en/us/digital-mixer-multi-track-recorders/digital-mixer-recorder/livetrak-l-12/l-12-support/) for Zoom livetrack L-12 in order to use multitrack recording, and USB transfers between macOS and the device. Don't forget to set the switch to *Class Compilant mode* at the back of the device.
 
@@ -153,6 +151,7 @@ Working natively. Change default startup disk from the macOS settings.
 
 - **DRM:** Can't play DRM content on Safari, but who cares?
 - **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Stay on macOS Big Sur if you do not have an alternative. 
+- **Sleep** (I didn't find yet how to fix it).
 
 ## BIOS Settings
 

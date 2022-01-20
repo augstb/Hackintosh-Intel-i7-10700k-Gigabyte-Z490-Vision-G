@@ -34,7 +34,7 @@
 				<key>Comment</key>
 				<string>SSDT-GPU-DISABLE.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-GPU-DISABLE.aml</string>
 			</dict>
@@ -266,7 +266,7 @@
 				<key>layout-id</key>
 				<data>AQAAAA==</data>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<key>#PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>BwCbPg==</data>
@@ -452,22 +452,22 @@
 				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
-					<key>Arch</key>
-					<string>x86_64</string>
-					<key>BundlePath</key>
-					<string>BluetoolFixup.kext</string>
-					<key>Comment</key>
-					<string>BluetoolFixup from BrcmPatchRAM</string>
-					<key>Enabled</key>
-					<true/>
-					<key>ExecutablePath</key>
-					<string>Contents/MacOS/BluetoolFixup</string>
-					<key>MaxKernel</key>
-					<string></string>
-					<key>MinKernel</key>
-					<string>10.0.0</string>
-					<key>PlistPath</key>
-					<string>Contents/Info.plist</string>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>BluetoolFixup.kext</string>
+				<key>Comment</key>
+				<string>BluetoolFixup from BrcmPatchRAM</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/BluetoolFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>10.0.0</string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
 			</dict>
 			<dict>
 				<key>Arch</key>
@@ -1072,7 +1072,8 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 debug=0x100 alcid=1 nv_disable=1 dk.e1000=0 swd_panic=1 -wegnoegpu</string>
+				<string>keepsyms=1 debug=0x100 alcid=1 dk.e1000=0 swd_panic=1 agdpmod=pikera
+</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
