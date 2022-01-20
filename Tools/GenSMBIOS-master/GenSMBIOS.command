@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import os, subprocess, shlex, datetime, sys, plistlib, tempfile, shutil, random, uuid, zipfile, json
+import os, subprocess, shlex, datetime, sys, plistlib, tempfile, shutil, random, uuid, zipfile, json, binascii
 from Scripts import *
 from collections import OrderedDict
 # Python-aware urllib stuff
@@ -10,10 +10,10 @@ else:
 
 class Smbios:
     def __init__(self):
+        os.chdir(os.path.dirname(os.path.realpath(__file__)))
         self.u = utils.Utils("GenSMBIOS")
         self.d = downloader.Downloader()
         self.r = run.Run()
-        self.macinfopkg_url = "https://api.github.com/repos/acidanthera/MacInfoPkg/releases"
         self.opencorpgk_url = "https://api.github.com/repos/acidanthera/OpenCorePkg/releases"
         self.scripts = "Scripts"
         self.plist = None
@@ -28,6 +28,9 @@ class Smbios:
             "Trust",
             "Memory"
         ]
+        try: self.rom_prefixes = json.load(open(os.path.join(self.scripts,"prefix.json")))
+        except: self.rom_prefixes = []
+        self.gen_rom = True        
 
     def _get_macserial_version(self):
         # Attempts to determine the macserial version from the latest OpenCorPkg
@@ -47,25 +50,9 @@ class Smbios:
         except: pass
         return None
 
-    def _get_macserial_version_linux(self):
-        # Get the latest version of macserial
-        try:
-            urlsource = json.loads(self.d.get_string(self.macinfopkg_url,False))
-            return urlsource[0].get("tag_name",None)
-        except: pass # Not valid data
-        return None
-
-    def _get_macserial_url_linux(self):
-        # Get the latest url of macserial - we'll leverage this for linux users
-        try:
-            urlsource = json.loads(self.d.get_string(self.macinfopkg_url,False))
-            return next((x.get("browser_download_url",None) for x in urlsource[0].get("assets",[]) if "linux.zip" in x.get("name","")),None)
-        except: pass # Not valid data
-        return None
-
     def _get_binary(self,binary_name=None):
         if not binary_name:
-            binary_name = ["macserial.exe","macserial32.exe"] if os.name == "nt" else ["macserial"]
+            binary_name = ["macserial.exe","macserial32.exe"] if os.name == "nt" else ["macserial.linux","macserial"] if sys.platform.startswith("linux") else ["macserial"]
         # Check locally
         cwd = os.getcwd()
         os.chdir(os.path.dirname(os.path.realpath(__file__)))
@@ -124,13 +111,8 @@ class Smbios:
         self.u.head("Getting MacSerial")
         print("")
         print("Gathering latest macserial info...")
-        # Check if Linux - as that only gets the old version
-        if sys.platform.startswith("linux"):
-            url = self._get_macserial_url_linux()
-            path_in_zip = []
-        else:
-            url = self._get_macserial_url()
-            path_in_zip = ["Utilities","macserial"]
+        url = self._get_macserial_url()
+        path_in_zip = ["Utilities","macserial"]
         if not url:
             print("Error checking for updates (network issue)\n")
             self.u.grab("Press [enter] to return...")
@@ -152,12 +134,8 @@ class Smbios:
         self.u.head("Getting MacSerial Remote Version")
         print("")
         print("Gathering latest macserial info...")
-        if sys.platform.startswith("linux"):
-            print(" - Running on Linux, limited to v2.1.2")
-            vers = self._get_macserial_version_linux()
-        else:
-            print(" - Gathering info from OpenCorePkg...")
-            vers = self._get_macserial_version()
+        print(" - Gathering info from OpenCorePkg...")
+        vers = self._get_macserial_version()
         if not vers:
             print("Error checking for updates (network issue)\n")
             self.u.grab("Press [enter] to return...")
@@ -255,6 +233,11 @@ class Smbios:
                         return
         self.plist = pc
 
+    def _get_rom(self):
+        rom_str = random.choice(self.rom_prefixes) if self.rom_prefixes else ""
+        while len(rom_str) < 12: rom_str += random.choice("0123456789ABCDEF")
+        return rom_str
+
     def _get_smbios(self, macserial, smbios_type, times=1):
         # Returns a list of SMBIOS lines that match
         total = []
@@ -280,6 +263,8 @@ class Smbios:
             s_list = [x.strip() for x in sm.split("|")]
             # Add a uuid
             s_list.append(str(uuid.uuid4()).upper())
+            # Generate a ROM value
+            s_list.append(self._get_rom())
             # Format the text
             output.append(s_list)
         return output
@@ -343,7 +328,9 @@ class Smbios:
             return
         self.u.head("{} SMBIOS Info".format(smbios[0][0]))
         print("")
-        print("\n\n".join(["Type:         {}\nSerial:       {}\nBoard Serial: {}\nSmUUID:       {}".format(x[0], x[1], x[2], x[3]) for x in smbios]))
+        f_string = "Type:         {}\nSerial:       {}\nBoard Serial: {}\nSmUUID:       {}"
+        if self.gen_rom: f_string += "\nApple ROM:    {}" if self.rom_prefixes else "\nRandom ROM:   {}"
+        print("\n\n".join([f_string.format(*x) for x in smbios]))
         if self.plist_data and self.plist and os.path.exists(self.plist):
             # Let's apply - got a valid file, and plist data
             if len(smbios) > 1:
@@ -360,6 +347,8 @@ class Smbios:
                 self.plist_data["SMBIOS"]["BoardSerialNumber"] = smbios[0][2]
                 self.plist_data["RtVariables"]["MLB"] = smbios[0][2]
                 self.plist_data["SMBIOS"]["SmUUID"] = smbios[0][3]
+                if self.gen_rom:
+                    self.plist_data["RtVariables"]["ROM"] = plist.wrap_data(binascii.unhexlify(smbios[0][4].encode("utf-8")))
                 self.plist_data["SystemParameters"]["InjectSystemID"] = True
             elif self.plist_type.lower() == "opencore":
                 # Ensure data exists
@@ -370,6 +359,8 @@ class Smbios:
                 self.plist_data["PlatformInfo"]["Generic"]["SystemSerialNumber"] = smbios[0][1]
                 self.plist_data["PlatformInfo"]["Generic"]["MLB"] = smbios[0][2]
                 self.plist_data["PlatformInfo"]["Generic"]["SystemUUID"] = smbios[0][3]
+                if self.gen_rom:
+                    self.plist_data["PlatformInfo"]["Generic"]["ROM"] = plist.wrap_data(binascii.unhexlify(smbios[0][4].encode("utf-8")))
             with open(self.plist, "wb") as f:
                 plist.dump(self.plist_data, f, sort_keys=False)
             # Got only valid keys now
@@ -412,7 +403,9 @@ class Smbios:
         print("2. Select config.plist")
         print("3. Generate SMBIOS")
         print("4. Generate UUID")
-        print("5. List Current SMBIOS")
+        print("5. Generate ROM")
+        print("6. List Current SMBIOS")
+        print("7. Generate ROM With SMBIOS (Currently {})".format("Enabled" if self.gen_rom else "Disabled"))
         print("")
         print("Q. Quit")
         print("")
@@ -434,7 +427,15 @@ class Smbios:
             print("")
             self.u.grab("Press [enter] to return...")
         elif menu == "5":
+            self.u.head("Generated ROM")
+            print("")
+            print("{} ROM: {}".format("Apple" if self.rom_prefixes else "Random", self._get_rom()))
+            print("")
+            self.u.grab("Press [enter] to return...")
+        elif menu == "6":
             self._list_current(macserial)
+        elif menu == "7":
+            self.gen_rom = not self.gen_rom
 
 s = Smbios()
 while True:
