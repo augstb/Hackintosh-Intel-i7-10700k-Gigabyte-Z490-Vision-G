@@ -177,7 +177,7 @@ Don't forget to set up your XMP profile correctly in *Tweaker* if you have high 
 
 **I don't recommand F20b BIOS update because it breaks sleep mode and I also found it slower than F8 at startup. I am not sure why, so unless you have a 11th gen Intel processor, you can just stay at F8c (at least before Gigabyte make another update after F20b). F8c enables Resizable Base-Adress (BAR) so you good to go with it at least.**
 
-Since **Gigabyte F8 BIOS Update**, in order to set ```Initial Display Output``` to ```IGFX``` you need to enable ```CSM Support```. Just enable ```CSM Support```, set ```Initial Display Output``` to ```IGFX```, then disable ```CSM Support``` (thanks [azhinu](https://github.com/azhinu) for the little [trick](https://github.com/augstb/Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G/issues/1)).
+If using iGPU, since **Gigabyte F8 BIOS Update**, in order to set ```Initial Display Output``` to ```IGFX``` you need to enable ```CSM Support```. Just enable ```CSM Support```, set ```Initial Display Output``` to ```IGFX```, then disable ```CSM Support``` (thanks [azhinu](https://github.com/azhinu) for the little [trick](https://github.com/augstb/Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G/issues/1)).
 
 In order to fix sleep mode showing green screen at wake, I found that adding ```-wegnoegpu``` to boot arguments did the trick, but I'm not 100% sure about it so I'll appreciate feedback. It might not be necessary if you have a dGPU.
 
