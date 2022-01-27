@@ -1115,11 +1115,11 @@
 		<key>Generic</key>
 		<dict>
 			<key>MLB</key>
-			<string>???MLB???</string>
+			<string>C02116130QXPHCDFB</string>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>mWaZZplmmWY=</data>
+			<data>aNk8gcQe</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
@@ -1127,9 +1127,9 @@
 			<key>SystemProductName</key>
 			<string>iMac20,1</string>
 			<key>SystemSerialNumber</key>
-			<string>???SSN???</string>
+			<string>C02FL0GRPN5T</string>
 			<key>SystemUUID</key>
-			<string>???UUID???</string>
+			<string>0A9BE17C-C89E-46AF-B18E-9746E194701C</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>AdviseFeatures</key>

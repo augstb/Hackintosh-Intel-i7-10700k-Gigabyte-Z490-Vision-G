@@ -1,6 +1,6 @@
 # Hackintosh-Intel-i7-10700k-Gigabyte-Z490-Vision-G
 
-This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.7.6)**.
+This repository contains WIP configuration files for an OpenCore build with **Gigabyte Z490 Vision G** motherboard and **Intel i7-10700k** *Comet Lake-S* desktop CPU. Compiled with **OpenCore (0.7.7)**.
 
 Particularities of this configuration :
 
@@ -151,7 +151,7 @@ Working natively. Change default startup disk from the macOS settings.
 
 - **DRM:** Can't play DRM content on Safari, but who cares?
 - **Intel I225-V Ethernet Controller** is not working on macOS Monterey. Stay on macOS Big Sur if you do not have an alternative. 
-- **Sleep** (I didn't find yet how to fix it).
+- **Sleep** (I didn't found yet how to fix it).
 
 ## BIOS Settings
 
@@ -183,9 +183,10 @@ In order to fix sleep mode showing green screen at wake, I found that adding ```
 
 ## Acknowledgments
 
-- [Dortania](https://github.com/dortania) For the awesome OpenCore desktop guide.
-- [OpenCore project](https://github.com/acidanthera/OpenCorePkg) For the cleanest and most complete bootloader of all time.
-- [georgetree](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g) For his work on the Z490 Vision-G framebuffer (fixing the HDMI port)
-- [samuel21119](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh) For his work on the USB mapping on the Vision G and on the LAN adapter
+- [5T33Z0](https://github.com/5T33Z0/Gigabyte-Z490-Vision-G-Hackintosh-OpenCore) for his awesome guide and base files for Z490 Vision G motherboard.
+- [Dortania](https://github.com/dortania) for the awesome OpenCore desktop guide.
+- [OpenCore project](https://github.com/acidanthera/OpenCorePkg) for the cleanest and most complete bootloader of all time.
+- [georgetree](https://github.com/georgetree/hackintosh-10700k-Gigabyte-Z490-Vision-g) for his work on the Z490 Vision G framebuffer (fixing the HDMI port)
+- [samuel21119](https://github.com/samuel21119/Intel-i9-10900-Gigabyte-Z490-Vision-G-Hackintosh) for his work on the USB mapping on the Vision G and on the LAN adapter
 
 <p align="center"><img src="./Images/dock.png" alt="Dock" width="710" /></p>
