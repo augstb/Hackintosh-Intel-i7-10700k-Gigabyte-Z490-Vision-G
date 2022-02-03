@@ -114,17 +114,18 @@ DP and HDMI are working fine after patching the Framebuffer. Keep in mind that t
 
   <p align="center"><img src="./Images/displays.png" alt="Startup disk" width="698" /></p>
 
+- **dGPU (AMD Radeon RX 6800 XT)**
+  
+  Using ```Lily.kext```, ```WhateverGreen.kext``` kexts, and ```agdpmod=pikera``` boot argument.
+
 - **Wifi *(TP-LINK AC1300 - Archer T6E)***
   Using kexts ```Airport*.kext```.
-
 - **Bluetooth *(Asus USB-BT400)***
   Using ```BlueToolFixup.kext``` from [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM).
-
 - **Handoff/iMessages/Apple services**
   Native
-
 - **NVRAM**
-Working natively. Change default startup disk from the macOS settings.
+  Working natively. Change default startup disk from the macOS settings.
 
 <p align="center"><img src="./Images/startup_disk.png" alt="Startup disk" width="838" /></p>
 
