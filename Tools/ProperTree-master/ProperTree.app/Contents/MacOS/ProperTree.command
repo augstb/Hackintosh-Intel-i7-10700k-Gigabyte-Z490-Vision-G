@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
 import sys, os, binascii, base64, json, re, subprocess
 from collections import OrderedDict
 try:
